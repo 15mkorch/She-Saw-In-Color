@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>She Saw in Color — Mary Korch</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;800&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- BIRD CANVAS (animated background layer) -->
+  <canvas id="birdCanvas"></canvas>
+
+  <!-- NAV -->
+  <nav id="mainNav">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo">She Saw in Color</a>
+      <ul class="nav-links">
+        <li><a href="#world">The World</a></li>
+        <li><a href="#characters">Characters</a></li>
+        <li><a href="#author">Author</a></li>
+        <li><a href="#shop" class="nav-cta">Get the Book</a></li>
+      </ul>
+      <button class="nav-hamburger" id="hamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="#world" onclick="closeMobileMenu()">The World</a></li>
+      <li><a href="#characters" onclick="closeMobileMenu()">Characters</a></li>
+      <li><a href="#author" onclick="closeMobileMenu()">Author</a></li>
+      <li><a href="#shop" onclick="closeMobileMenu()">Get the Book</a></li>
+    </ul>
+  </div>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-bg"></div>
+    <div class="color-wash"></div>
+    <div class="hero-content">
+      <p class="hero-tagline">For the ones who still dare to see</p>
+      <h1 class="hero-title">
+        <span class="word-she">She</span>
+        <span class="word-saw">Saw</span>
+        <span class="word-in">in</span>
+        <span class="word-color">Color</span>
+      </h1>
+      <p class="hero-byline">by Mary Korch</p>
+      <p class="hero-desc">Kailani's the last one left. And she doesn't know it.</p>
+      <div class="hero-btns">
+        <a href="#world" class="btn btn-primary">Enter the World</a>
+        <a href="#shop" class="btn btn-secondary">Order Now</a>
+      </div>
+    </div>
+    <div class="hero-book">
+      <img src="cover.jpg" alt="She Saw in Color book cover" class="book-cover" />
+      <div class="book-glow"></div>
+    </div>
+    <div class="hero-scroll-hint">
+      <span>scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- WORLD INTRO -->
+  <section id="world">
+    <div class="world-split">
+      <div class="world-grey">
+        <div class="world-grey-overlay"></div>
+        <div class="world-grey-content">
+          <div class="bird-icon black-bird">
+            <svg viewBox="0 0 80 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M2 40 Q20 5 40 25 Q55 10 78 8 Q60 20 50 30 Q65 28 75 35 Q55 33 40 45 Q25 35 2 40Z" fill="#1a1a1a"/>
+              <ellipse cx="72" cy="10" rx="4" ry="3" fill="#333"/>
+            </svg>
+          </div>
+          <h2>The Grey</h2>
+          <p>The shedim have been working in silence for years — unseen, patient, methodical. One by one they pull the veil across human eyes until the vivid world bleeds into static. They do not destroy. They simply... convince.</p>
+          <blockquote>"They do not come with fire. They come with reasons."</blockquote>
+        </div>
+      </div>
+      <div class="world-color">
+        <div class="world-color-overlay"></div>
+        <div class="world-color-content">
+          <div class="bird-icon bright-bird">
+            <svg viewBox="0 0 80 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M2 40 Q20 5 40 25 Q55 10 78 8 Q60 20 50 30 Q65 28 75 35 Q55 33 40 45 Q25 35 2 40Z" fill="url(#birdGrad)"/>
+              <ellipse cx="72" cy="10" rx="4" ry="3" fill="#ffd700"/>
+              <defs>
+                <linearGradient id="birdGrad" x1="0" y1="0" x2="80" y2="50">
+                  <stop offset="0%" stop-color="#00bfff"/>
+                  <stop offset="50%" stop-color="#ff00cc"/>
+                  <stop offset="100%" stop-color="#ffd700"/>
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+          <h2>The Color</h2>
+          <p>Guardians move through the world like light through stained glass — ancient, faithful, and burning. They watch over the last ones who still see clearly, knowing that if even one soul holds the color, the world is not yet lost.</p>
+          <blockquote>"To see in color is an act of defiance."</blockquote>
+        </div>
+      </div>
+    </div>
+
+    <div class="world-description">
+      <div class="container">
+        <div class="world-desc-inner">
+          <div class="color-bar"></div>
+          <p class="world-desc-text">Kailani is seventeen, a star student from Indiana who sees the world richer, more alive, more meaningful than anyone around her. She's been quietly building a meticulous plan to escape her chaos and become the person she's been hiding. What she doesn't know is that she's the <em>last one left</em> — and the key to saving everything.</p>
+          <div class="genre-tags">
+            <span>For fans of Ted Dekker</span>
+            <span class="divider">·</span>
+            <span>For fans of Jandy Nelson</span>
+            <span class="divider">·</span>
+            <span>Dual POV</span>
+            <span class="divider">·</span>
+            <span>YA Fantasy</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CHARACTERS -->
+  <section id="characters">
+    <div class="container">
+      <h2 class="section-title">Meet the Characters</h2>
+      <p class="section-subtitle">Hover over each character to learn more</p>
+    </div>
+    <div class="scene-wrapper">
+      <div class="scene-bg"></div>
+      <div class="scene-overlay"></div>
+
+      <!-- Character 1: Kailani -->
+      <div class="character char-kailani" data-char="kailani">
+        <div class="char-silhouette kailani-silhouette"></div>
+        <div class="char-popup">
+          <div class="popup-accent kailani-accent"></div>
+          <h3>Kailani</h3>
+          <span class="char-role">The Last Seer</span>
+          <p>Seventeen, fiercely bright, and unknowingly carrying the weight of the world. She sees color where others have stopped looking — in music, in strangers, in the cracks of broken things. She's building a plan to escape. But the world has other plans for her.</p>
+          <div class="char-trait">
+            <span class="trait-label">Gift:</span> Sees the world as it truly is
+          </div>
+          <div class="char-trait">
+            <span class="trait-label">Fear:</span> That she was never meant to have the things she loves
+          </div>
+        </div>
+      </div>
+
+      <!-- Character 2: Joseph -->
+      <div class="character char-joseph" data-char="joseph">
+        <div class="char-silhouette joseph-silhouette"></div>
+        <div class="char-popup popup-right">
+          <div class="popup-accent joseph-accent"></div>
+          <h3>Joseph</h3>
+          <span class="char-role">The Ancient Guardian</span>
+          <p>He has watched over countless souls across centuries. Patient, steadfast, burning with quiet purpose. Now tasked with protecting the last seer, he fights an uphill battle as everything around Kailani begins to fracture. He cannot intervene directly. He can only guard.</p>
+          <div class="char-trait">
+            <span class="trait-label">Nature:</span> Ancient. Faithful. Burning.
+          </div>
+          <div class="char-trait">
+            <span class="trait-label">Burden:</span> Watching, but never able to simply save her
+          </div>
+        </div>
+      </div>
+
+      <!-- Character 3: The Shedim -->
+      <div class="character char-shedim" data-char="shedim">
+        <div class="char-silhouette shedim-silhouette"></div>
+        <div class="char-popup popup-center">
+          <div class="popup-accent shedim-accent"></div>
+          <h3>The Shedim</h3>
+          <span class="char-role">Agents of the Grey</span>
+          <p>They do not announce themselves. They arrive as doubts, as exhaustion, as the reasonable voice that says: why bother? They have already turned the world grey, one soul at a time. Only one remains. They will not rush. They never need to.</p>
+          <div class="char-trait">
+            <span class="trait-label">Weapon:</span> Grief. Fear. The wounds kept hidden.
+          </div>
+          <div class="char-trait">
+            <span class="trait-label">Tactic:</span> Patience and persuasion
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- COLOR MANIFESTO BAND -->
+  <section id="manifesto">
+    <div class="manifesto-inner">
+      <div class="manifesto-birds">
+        <div class="flying-bird b1"></div>
+        <div class="flying-bird b2"></div>
+        <div class="flying-bird b3"></div>
+        <div class="flying-bird b4 dark-fb"></div>
+        <div class="flying-bird b5 dark-fb"></div>
+      </div>
+      <blockquote class="manifesto-quote">
+        <span class="q-grey">Will she step into the light?</span>
+        <span class="q-or">Or</span>
+        <span class="q-color">let the grey win?</span>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- AUTHOR -->
+  <section id="author">
+    <div class="container">
+      <div class="author-inner">
+        <div class="author-photo-wrap">
+          <div class="author-photo-frame">
+            <img src="author.jpg" alt="Mary Korch" class="author-photo" onerror="this.parentElement.classList.add('no-photo')" />
+            <div class="author-photo-placeholder">
+              <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="60" cy="45" r="25" fill="rgba(255,255,255,0.15)"/>
+                <path d="M15 105 Q15 75 60 75 Q105 75 105 105" fill="rgba(255,255,255,0.15)"/>
+              </svg>
+            </div>
+            <div class="author-photo-birds"></div>
+          </div>
+        </div>
+        <div class="author-text">
+          <span class="about-label">About the Author</span>
+          <h2 class="author-name">Mary Korch</h2>
+          <div class="author-bio">
+            <p>Mary Korch writes stories that sit at the intersection of the seen and unseen — where ordinary life brushes up against something ancient and urgent. <em>She Saw in Color</em> is her debut novel.</p>
+            <p>She believes the world is far more vivid than most of us dare to notice, and she writes for the ones still willing to look.</p>
+          </div>
+          <div class="author-social">
+            <a href="#" class="social-link" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </a>
+            <a href="#" class="social-link" aria-label="Twitter/X">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SHOP -->
+  <section id="shop">
+    <div class="shop-bg"></div>
+    <div class="container">
+      <h2 class="section-title">Get the Book</h2>
+      <p class="section-subtitle">Choose your edition</p>
+
+      <div class="products-grid">
+
+        <div class="product-card" data-product="paperback">
+          <div class="product-color-bar"></div>
+          <div class="product-img-wrap">
+            <img src="cover.jpg" alt="She Saw in Color — Paperback" />
+          </div>
+          <div class="product-info">
+            <h3>Paperback</h3>
+            <p class="product-desc">The standard edition. Bold cover, quality print. Perfect for the first read — or for sharing.</p>
+            <div class="product-price">$16.99</div>
+            <button class="btn btn-primary add-to-cart" data-id="paperback" data-name="Paperback" data-price="16.99">Add to Cart</button>
+          </div>
+        </div>
+
+        <div class="product-card featured" data-product="hardcover">
+          <div class="featured-badge">Most Popular</div>
+          <div class="product-color-bar"></div>
+          <div class="product-img-wrap">
+            <img src="cover.jpg" alt="She Saw in Color — Hardcover" />
+          </div>
+          <div class="product-info">
+            <h3>Hardcover</h3>
+            <p class="product-desc">A keepsake edition built to last. Sewn binding, full-color interior details, and a foil-stamped cover.</p>
+            <div class="product-price">$27.99</div>
+            <button class="btn btn-primary add-to-cart" data-id="hardcover" data-name="Hardcover" data-price="27.99">Add to Cart</button>
+          </div>
+        </div>
+
+        <div class="product-card" data-product="ebook">
+          <div class="product-color-bar"></div>
+          <div class="product-img-wrap ebook-img">
+            <img src="cover.jpg" alt="She Saw in Color — eBook" />
+            <div class="ebook-badge">eBook</div>
+          </div>
+          <div class="product-info">
+            <h3>eBook</h3>
+            <p class="product-desc">Read anywhere, any time. Delivered instantly to your device. Available in all major formats.</p>
+            <div class="product-price">$9.99</div>
+            <button class="btn btn-primary add-to-cart" data-id="ebook" data-name="eBook" data-price="9.99">Add to Cart</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- CART DRAWER -->
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <div class="cart-drawer" id="cartDrawer">
+      <div class="cart-header">
+        <h3>Your Cart</h3>
+        <button class="cart-close" id="cartClose" aria-label="Close cart">&times;</button>
+      </div>
+      <div class="cart-items" id="cartItems">
+        <p class="cart-empty">Your cart is empty.</p>
+      </div>
+      <div class="cart-footer" id="cartFooter" style="display:none">
+        <div class="cart-total">
+          <span>Total</span>
+          <span id="cartTotal">$0.00</span>
+        </div>
+        <button class="btn btn-primary checkout-btn" id="checkoutBtn">Checkout</button>
+        <p class="cart-note">Secure checkout powered by Stripe</p>
+      </div>
+    </div>
+
+    <!-- CART TRIGGER -->
+    <button class="cart-fab" id="cartFab" aria-label="Open cart">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+      <span class="cart-badge" id="cartBadge">0</span>
+    </button>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="footer">
+    <div class="footer-birds">
+      <div class="footer-bird-dark"></div>
+      <div class="footer-bird-light"></div>
+    </div>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <p class="footer-title">She Saw in Color</p>
+          <p class="footer-sub">by Mary Korch</p>
+          <p class="footer-tagline">For the ones who still dare to see</p>
+        </div>
+        <div class="footer-links">
+          <a href="#world">The World</a>
+          <a href="#characters">Characters</a>
+          <a href="#author">Author</a>
+          <a href="#shop">Shop</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Mary Korch. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

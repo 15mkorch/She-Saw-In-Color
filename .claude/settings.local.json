@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find /Users/marykorch/Desktop /Users/marykorch/Downloads /Users/marykorch/Documents -maxdepth 4 \\\\\\(-name *.jpg -o -name *.png -o -name *.jpeg \\\\\\))",
+      "Bash(ls -lt /Users/marykorch/Desktop/*.png /Users/marykorch/Desktop/*.jpg)",
+      "Bash(ls -lt /Users/marykorch/Desktop/*.png)",
+      "mcp__Claude_Preview__preview_start"
+    ]
+  }
+}
