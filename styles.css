@@ -238,6 +238,48 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   margin-bottom: 3rem;
 }
 
+.release-info {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.release-date {
+  font-size: 1.1rem;
+  color: var(--gold);
+  margin-bottom: 0.5rem;
+  font-family: var(--font-body);
+}
+
+.release-sub {
+  color: var(--grey-light);
+  font-style: italic;
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+  font-family: var(--font-body);
+}
+
+.email-capture {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.email-capture input[type="email"] {
+  padding: 0.75rem 1.25rem;
+  border: 1px solid rgba(201,168,76,0.4);
+  border-radius: 4px;
+  background: rgba(255,255,255,0.05);
+  color: #fff;
+  font-size: 0.95rem;
+  width: 280px;
+  outline: none;
+}
+
+.email-capture input[type="email"]:focus {
+  border-color: var(--gold);
+}
+
 /* ============================================================
    HERO
    ============================================================ */
@@ -797,9 +839,9 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 /* Popups */
 .char-popup {
   position: absolute;
-  bottom: 190px;
+  top: 50%;
   left: 50%;
-  transform: translateX(-50%) translateY(10px);
+  transform: translateX(-50%) translateY(-50%) scale(1.06);
   width: 300px;
   background: rgba(10,10,18,0.97);
   border: 1px solid rgba(255,255,255,0.08);
@@ -807,34 +849,67 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   padding: 1.5rem;
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.3s, transform 0.3s;
   box-shadow: 0 20px 60px rgba(0,0,0,0.8);
   z-index: 20;
+  filter: blur(14px) saturate(0);
+  transition: opacity 0.55s ease, filter 0.6s ease, transform 0.6s ease;
 }
 
 .char-popup.popup-right {
   left: auto;
   right: 0;
-  transform: translateY(10px);
+  transform: translateY(-50%) scale(1.06);
 }
 
 .char-popup.popup-center {
   left: 50%;
-  transform: translateX(-50%) translateY(10px);
+  transform: translateX(-50%) translateY(-50%) scale(1.06);
+}
+
+/* Text elements start hidden, stagger in after smoke clears */
+.char-popup h3,
+.char-popup .char-role,
+.char-popup p {
+  opacity: 0;
+  filter: blur(6px);
+  transform: translateY(6px);
+  transition: opacity 0s, filter 0s, transform 0s;
 }
 
 .character:hover .char-popup {
   opacity: 1;
-  transform: translateX(-50%) translateY(0);
+  filter: blur(0) saturate(1);
+  transform: translateX(-50%) translateY(-50%) scale(1);
   pointer-events: auto;
 }
 
 .character:hover .popup-right {
-  transform: translateY(0);
+  transform: translateY(-50%) scale(1);
 }
 
 .character:hover .popup-center {
-  transform: translateX(-50%) translateY(0);
+  transform: translateX(-50%) translateY(-50%) scale(1);
+}
+
+.character:hover .char-popup h3 {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateY(0);
+  transition: opacity 0.4s 0.3s, filter 0.4s 0.3s, transform 0.4s 0.3s;
+}
+
+.character:hover .char-popup .char-role {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateY(0);
+  transition: opacity 0.4s 0.4s, filter 0.4s 0.4s, transform 0.4s 0.4s;
+}
+
+.character:hover .char-popup p {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateY(0);
+  transition: opacity 0.5s 0.5s, filter 0.5s 0.5s, transform 0.5s 0.5s;
 }
 
 .popup-accent {

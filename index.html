@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>She Saw in Color — Mary Korch</title>
+  <link rel="icon" type="image/png" href="favicon2.png" />
   <link rel="stylesheet" href="styles.css" />
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;800&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
 </head>
@@ -20,7 +21,7 @@
         <li><a href="#world">The World</a></li>
         <li><a href="#characters">Characters</a></li>
         <li><a href="#author">Author</a></li>
-        <li><a href="#shop" class="nav-cta">Get the Book</a></li>
+        <li><a href="#shop" class="nav-cta">Pre-order the Book</a></li>
       </ul>
       <button class="nav-hamburger" id="hamburger" aria-label="Open menu">
         <span></span><span></span><span></span>
@@ -34,7 +35,7 @@
       <li><a href="#world" onclick="closeMobileMenu()">The World</a></li>
       <li><a href="#characters" onclick="closeMobileMenu()">Characters</a></li>
       <li><a href="#author" onclick="closeMobileMenu()">Author</a></li>
-      <li><a href="#shop" onclick="closeMobileMenu()">Get the Book</a></li>
+      <li><a href="#shop" onclick="closeMobileMenu()">Pre-order the Book</a></li>
     </ul>
   </div>
 
@@ -161,7 +162,7 @@
       <!-- Character 3: Artibak (right) -->
       <div class="character char-shedim" data-char="artibak">
         <img src="artibak.png" alt="Artibak" class="artibak-portrait" />
-        <div class="char-popup popup-right">
+        <div class="char-popup popup-center">
           <div class="popup-accent shedim-accent"></div>
           <h3>Artibak</h3>
           <span class="char-role">Agents of the Grey</span>
@@ -214,10 +215,10 @@
             <p>She believes the world is far more vivid than most of us dare to notice, and she writes for the ones still willing to look.</p>
           </div>
           <div class="author-social">
-            <a href="#" class="social-link" aria-label="Instagram">
+            <a href="https://www.instagram.com/maryikorch/" target="_blank" class="social-link" aria-label="Instagram">
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
             </a>
-            <a href="#" class="social-link" aria-label="Twitter/X">
+            <a href="https://x.com/kailanibtc" target="_blank" class="social-link" aria-label="Twitter/X">
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
             </a>
           </div>
@@ -230,8 +231,15 @@
   <section id="shop">
     <div class="shop-bg"></div>
     <div class="container">
-      <h2 class="section-title">Get the Book</h2>
-      <p class="section-subtitle">Choose your edition</p>
+      <h2 class="section-title">Pre-order the Book</h2>
+      <div class="release-info">
+        <p class="release-date">Release date: <strong>Coming soon!</strong></p>
+        <p class="release-sub">To be the first to hear release updates, share your email here:</p>
+        <form class="email-capture" onsubmit="handleEmailSubmit(event)">
+          <input type="email" placeholder="your@email.com" required />
+          <button type="submit" class="btn btn-primary">Notify Me</button>
+        </form>
+      </div>
 
       <div class="products-grid">
 
@@ -241,10 +249,8 @@
             <img src="cover.jpg" alt="She Saw in Color — Paperback" />
           </div>
           <div class="product-info">
-            <h3>Paperback</h3>
-            <p class="product-desc">The standard edition. Bold cover, quality print. Perfect for the first read — or for sharing.</p>
             <div class="product-price">$16.99</div>
-            <button class="btn btn-primary add-to-cart" data-id="paperback" data-name="Paperback" data-price="16.99">Add to Cart</button>
+            <a href="https://buy.stripe.com/bJe28rfsNbvE7ZUbHSfQI01" target="_blank" class="btn btn-primary">Pre-order Now</a>
           </div>
         </div>
 
@@ -255,10 +261,8 @@
             <img src="cover.jpg" alt="She Saw in Color — Hardcover" />
           </div>
           <div class="product-info">
-            <h3>Hardcover</h3>
-            <p class="product-desc">A keepsake edition built to last. Sewn binding, full-color interior details, and a foil-stamped cover.</p>
-            <div class="product-price">$27.99</div>
-            <button class="btn btn-primary add-to-cart" data-id="hardcover" data-name="Hardcover" data-price="27.99">Add to Cart</button>
+            <div class="product-price">$24.99</div>
+            <a href="https://buy.stripe.com/6oU28r4O9dDMa824fqfQI00" target="_blank" class="btn btn-primary">Pre-order Now</a>
           </div>
         </div>
 
@@ -269,8 +273,6 @@
             <div class="ebook-badge">eBook</div>
           </div>
           <div class="product-info">
-            <h3>eBook</h3>
-            <p class="product-desc">Read anywhere, any time. Delivered instantly to your device. Available in all major formats.</p>
             <div class="product-price">$9.99</div>
             <button class="btn btn-primary add-to-cart" data-id="ebook" data-name="eBook" data-price="9.99">Add to Cart</button>
           </div>

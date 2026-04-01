@@ -286,3 +286,13 @@ if (heroBook) {
 
 // Initial render
 renderCart();
+
+// Email capture
+function handleEmailSubmit(e) {
+  e.preventDefault();
+  const input = e.target.querySelector('input[type="email"]');
+  const btn = e.target.querySelector('button');
+  btn.textContent = 'Thank you!';
+  btn.disabled = true;
+  input.disabled = true;
+}
