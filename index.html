@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>She Saw in Color — Mary Korch</title>
   <link rel="icon" type="image/png" href="favicon2.png" />
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles.css?v=4" />
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;800&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
 </head>
 <body>
@@ -59,7 +59,7 @@
       </div>
     </div>
     <div class="hero-book">
-      <img src="cover.jpg" alt="She Saw in Color book cover" class="book-cover" />
+      <img src="cover.png" alt="She Saw in Color book cover" class="book-cover" />
       <div class="book-glow"></div>
     </div>
     <div class="hero-scroll-hint">
@@ -131,16 +131,15 @@
   <section id="characters">
     <div class="container">
       <h2 class="section-title">Meet the Characters</h2>
-      <p class="section-subtitle">Hover over each character to learn more</p>
     </div>
-    <div class="scene-wrapper">
-      <div class="scene-bg"></div>
-      <div class="scene-overlay"></div>
+    <div class="char-grid">
 
       <!-- Character 1: Joseph (left) -->
-      <div class="character char-joseph" data-char="joseph">
-        <img src="Joseph.png" alt="Joseph" class="joseph-portrait" />
-        <div class="char-popup">
+      <div class="char-card">
+        <div class="char-img-wrap">
+          <img src="Joseph.png" alt="Joseph" class="joseph-portrait" />
+        </div>
+        <div class="char-info">
           <div class="popup-accent joseph-accent"></div>
           <h3>Joseph</h3>
           <span class="char-role">The Ancient Guardian</span>
@@ -149,9 +148,11 @@
       </div>
 
       <!-- Character 2: Kailani (center) -->
-      <div class="character char-kailani" data-char="kailani">
-        <img src="grok-kaialni.png" alt="Kailani" class="kailani-portrait" />
-        <div class="char-popup popup-center">
+      <div class="char-card">
+        <div class="char-img-wrap">
+          <img src="grok-kaialni.png" alt="Kailani" class="kailani-portrait" />
+        </div>
+        <div class="char-info">
           <div class="popup-accent kailani-accent"></div>
           <h3>Kailani</h3>
           <span class="char-role">The Last Seer</span>
@@ -160,12 +161,14 @@
       </div>
 
       <!-- Character 3: Artibak (right) -->
-      <div class="character char-shedim" data-char="artibak">
-        <img src="artibak.png" alt="Artibak" class="artibak-portrait" />
-        <div class="char-popup popup-center">
+      <div class="char-card">
+        <div class="char-img-wrap">
+          <img src="artibak1.png" alt="Artibak" class="artibak-portrait" />
+        </div>
+        <div class="char-info">
           <div class="popup-accent shedim-accent"></div>
           <h3>Artibak</h3>
-          <span class="char-role">Agents of the Grey</span>
+          <span class="char-role">Agent of the Grey</span>
           <p>Artibak moves like shadow: patient, precise, and impossible to predict. He's highly ranked among the shedim and feared for his unmatched ability to pull humanity into the grey. His tactics perplex both the camu who fight against him and the shedim who fight beside him, leaving everyone with the same uneasy question: what is he really after?</p>
         </div>
       </div>
@@ -246,10 +249,10 @@
         <div class="product-card" data-product="paperback">
           <div class="product-color-bar"></div>
           <div class="product-img-wrap">
-            <img src="cover.jpg" alt="She Saw in Color — Paperback" />
+            <img src="paperback2.png" alt="She Saw in Color — Paperback" />
           </div>
           <div class="product-info">
-            <div class="product-price">$16.99</div>
+            <div class="product-price">$14.99</div>
             <a href="https://buy.stripe.com/bJe28rfsNbvE7ZUbHSfQI01" target="_blank" class="btn btn-primary">Pre-order Now</a>
           </div>
         </div>
@@ -258,7 +261,7 @@
           <div class="featured-badge">Most Popular</div>
           <div class="product-color-bar"></div>
           <div class="product-img-wrap">
-            <img src="cover.jpg" alt="She Saw in Color — Hardcover" />
+            <img src="hardcover2.png" alt="She Saw in Color — Hardcover" />
           </div>
           <div class="product-info">
             <div class="product-price">$24.99</div>
@@ -269,12 +272,12 @@
         <div class="product-card" data-product="ebook">
           <div class="product-color-bar"></div>
           <div class="product-img-wrap ebook-img">
-            <img src="cover.jpg" alt="She Saw in Color — eBook" />
+            <img src="cover.png" alt="She Saw in Color — eBook" />
             <div class="ebook-badge">eBook</div>
           </div>
           <div class="product-info">
             <div class="product-price">$9.99</div>
-            <button class="btn btn-primary add-to-cart" data-id="ebook" data-name="eBook" data-price="9.99">Add to Cart</button>
+            <a href="https://buy.stripe.com/14A9ATbcx1V4dkedQ0fQI02" target="_blank" class="btn btn-primary">Pre-order Now</a>
           </div>
         </div>
 
