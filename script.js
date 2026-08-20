@@ -218,7 +218,7 @@ document.getElementById('checkoutBtn').addEventListener('click', () => {
 
 // ─── SCROLL REVEAL ────────────────────────────────────────
 const revealEls = document.querySelectorAll(
-  '#world .world-grey-content, #world .world-color-content, #world .world-desc-inner, ' +
+  '#world .story-carousel, #world .world-desc-inner, ' +
   '.product-card, .author-inner, #manifesto .manifesto-quote'
 );
 
@@ -289,10 +289,79 @@ renderCart();
 
 // Email capture
 function handleEmailSubmit(e) {
-  e.preventDefault();
-  const input = e.target.querySelector('input[type="email"]');
-  const btn = e.target.querySelector('button');
-  btn.textContent = 'Thank you!';
-  btn.disabled = true;
-  input.disabled = true;
+  const form = e.target;
+  // Let the form actually submit to MailerLite (via the hidden iframe target).
+  // Disabling fields must wait until after submission is dispatched, or the
+  // browser excludes disabled fields from the serialized form data.
+  setTimeout(() => {
+    const input = form.querySelector('input[type="email"]');
+    const btn = form.querySelector('button');
+    btn.textContent = 'Thank you!';
+    btn.disabled = true;
+    input.disabled = true;
+  }, 0);
+}
+
+// ─── STORY CAROUSEL ───────────────────────────────────────
+const storyCarousel = document.querySelector('.story-carousel');
+if (storyCarousel) {
+  const track = storyCarousel.querySelector('.carousel-track');
+  const slides = Array.from(storyCarousel.querySelectorAll('.story-slide'));
+  const dots = Array.from(storyCarousel.querySelectorAll('.carousel-dot'));
+  const prevBtn = storyCarousel.querySelector('.carousel-prev');
+  const nextBtn = storyCarousel.querySelector('.carousel-next');
+  const slideCount = slides.length;
+  let current = 0;
+  let autoplayTimer = null;
+  const autoplayDelay = parseInt(storyCarousel.dataset.autoplay, 10) || 6000;
+
+  function goTo(index) {
+    current = (index + slideCount) % slideCount;
+    track.style.transform = `translateX(-${current * (100 / slideCount)}%)`;
+    dots.forEach((dot, i) => dot.classList.toggle('active', i === current));
+    slides.forEach((slide, i) => slide.setAttribute('aria-hidden', i !== current));
+  }
+
+  function next() { goTo(current + 1); }
+  function prev() { goTo(current - 1); }
+
+  function startAutoplay() {
+    stopAutoplay();
+    autoplayTimer = setInterval(next, autoplayDelay);
+  }
+  function stopAutoplay() {
+    if (autoplayTimer) clearInterval(autoplayTimer);
+  }
+
+  nextBtn.addEventListener('click', () => { next(); startAutoplay(); });
+  prevBtn.addEventListener('click', () => { prev(); startAutoplay(); });
+  dots.forEach((dot) => {
+    dot.addEventListener('click', () => {
+      goTo(parseInt(dot.dataset.slide, 10));
+      startAutoplay();
+    });
+  });
+
+  storyCarousel.addEventListener('mouseenter', stopAutoplay);
+  storyCarousel.addEventListener('mouseleave', startAutoplay);
+
+  storyCarousel.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') { prev(); startAutoplay(); }
+    if (e.key === 'ArrowRight') { next(); startAutoplay(); }
+  });
+
+  let touchStartX = 0;
+  storyCarousel.addEventListener('touchstart', (e) => {
+    touchStartX = e.touches[0].clientX;
+    stopAutoplay();
+  }, { passive: true });
+  storyCarousel.addEventListener('touchend', (e) => {
+    const deltaX = e.changedTouches[0].clientX - touchStartX;
+    if (deltaX > 40) prev();
+    else if (deltaX < -40) next();
+    startAutoplay();
+  }, { passive: true });
+
+  goTo(0);
+  startAutoplay();
 }
