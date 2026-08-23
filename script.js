@@ -8,6 +8,33 @@ window.addEventListener('scroll', () => {
   nav.classList.toggle('scrolled', window.scrollY > 60);
 }, { passive: true });
 
+// ─── FIRST-VISIT CHAPTER MODAL ────────────────────────────
+const chapterModal = document.getElementById('chapterModal');
+if (chapterModal) {
+  const MODAL_SEEN_KEY = 'chapter-modal-dismissed';
+  const alreadyDismissed = localStorage.getItem(MODAL_SEEN_KEY);
+  const alreadySubscribed = localStorage.getItem('loops-subscribed');
+
+  window.closeChapterModal = function () {
+    chapterModal.classList.remove('open');
+    chapterModal.setAttribute('aria-hidden', 'true');
+    localStorage.setItem(MODAL_SEEN_KEY, '1');
+  };
+
+  if (!alreadyDismissed && !alreadySubscribed) {
+    setTimeout(() => {
+      chapterModal.classList.add('open');
+      chapterModal.setAttribute('aria-hidden', 'false');
+    }, 4000);
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && chapterModal.classList.contains('open')) {
+      closeChapterModal();
+    }
+  });
+}
+
 // ─── HAMBURGER ────────────────────────────────────────────
 const hamburger = document.getElementById('hamburger');
 const mobileMenu = document.getElementById('mobileMenu');
@@ -287,19 +314,55 @@ if (heroBook) {
 // Initial render
 renderCart();
 
-// Email capture
+// Email capture (Loops.so)
 function handleEmailSubmit(e) {
+  e.preventDefault();
   const form = e.target;
-  // Let the form actually submit to MailerLite (via the hidden iframe target).
-  // Disabling fields must wait until after submission is dispatched, or the
-  // browser excludes disabled fields from the serialized form data.
-  setTimeout(() => {
-    const input = form.querySelector('input[type="email"]');
-    const btn = form.querySelector('button');
-    btn.textContent = 'Thank you!';
-    btn.disabled = true;
-    input.disabled = true;
-  }, 0);
+  const input = form.querySelector('input[type="email"]');
+  const btn = form.querySelector('button');
+  const originalText = btn.textContent;
+
+  const now = Date.now();
+  const lastSubmit = localStorage.getItem('loops-form-timestamp');
+  if (lastSubmit && Number(lastSubmit) + 60000 > now) {
+    btn.textContent = 'Too many signups — try again shortly';
+    setTimeout(() => { btn.textContent = originalText; }, 3000);
+    return;
+  }
+  localStorage.setItem('loops-form-timestamp', now);
+
+  btn.textContent = 'Sending...';
+  btn.disabled = true;
+
+  const body = 'userGroup=&mailingLists=&email=' + encodeURIComponent(input.value);
+
+  fetch(form.action, {
+    method: 'POST',
+    body: body,
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+  })
+    .then((res) => res.json().then((data) => ({ ok: res.ok, data })))
+    .then(({ ok, data }) => {
+      if (ok) {
+        btn.textContent = 'Thank you!';
+        input.disabled = true;
+        localStorage.setItem('loops-subscribed', '1');
+        const modal = form.closest('#chapterModal');
+        if (modal) {
+          setTimeout(() => { closeChapterModal(); }, 1800);
+        }
+      } else {
+        btn.textContent = data.message || 'Something went wrong';
+        btn.disabled = false;
+        setTimeout(() => { btn.textContent = originalText; }, 3000);
+      }
+    })
+    .catch(() => {
+      localStorage.setItem('loops-form-timestamp', '');
+      btn.textContent = 'Something went wrong';
+      btn.disabled = false;
+      setTimeout(() => { btn.textContent = originalText; }, 3000);
+    });
 }
 
 // ─── STORY CAROUSEL ───────────────────────────────────────

@@ -5,23 +5,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>She Saw in Color — Mary Korch</title>
   <link rel="icon" type="image/png" href="favicon2.png" />
-  <link rel="stylesheet" href="styles.css?v=12" />
+  <link rel="stylesheet" href="styles.css?v=13" />
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;800&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
-
-  <!-- MailerLite Universal -->
-  <script>
-      (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
-      .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
-      n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
-      (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
-      ml('account', '2584116');
-  </script>
-  <!-- End MailerLite Universal -->
 </head>
 <body>
 
   <!-- BIRD CANVAS (animated background layer) -->
   <canvas id="birdCanvas"></canvas>
+
+  <!-- FIRST-VISIT CHAPTER MODAL -->
+  <div id="chapterModal" class="chapter-modal" aria-hidden="true">
+    <div class="chapter-modal-backdrop" onclick="closeChapterModal()"></div>
+    <div class="chapter-modal-box" role="dialog" aria-modal="true" aria-labelledby="chapterModalTitle">
+      <button class="chapter-modal-close" onclick="closeChapterModal()" aria-label="Close">&times;</button>
+      <img src="ebook.png" alt="She Saw in Color book cover" class="chapter-modal-cover" />
+      <div class="chapter-modal-content">
+        <p class="chapter-modal-eyebrow">Before you go</p>
+        <h3 id="chapterModalTitle">Get Chapter One for FREE</h3>
+        <p class="chapter-modal-text">Step into the world of <em>She Saw in Color</em>. Join the list and we'll send you the first chapter today.</p>
+        <form class="chapter-modal-form" action="https://app.loops.so/api/newsletter-form/cmt53rgg404s60j00j0g5qqrm" onsubmit="handleEmailSubmit(event)">
+          <input type="email" name="email" placeholder="your@email.com" autocomplete="email" required />
+          <button type="submit" class="btn btn-primary">Get Chapter One for FREE</button>
+        </form>
+        <button type="button" class="chapter-modal-dismiss" onclick="closeChapterModal()">No thanks, maybe later</button>
+      </div>
+    </div>
+  </div>
 
   <!-- NAV -->
   <nav id="mainNav">
@@ -64,10 +73,8 @@
       <p class="hero-byline">by Mary Korch</p>
       <p class="hero-desc">For the ones who dare to see</p>
       <div class="hero-btns">
-        <form class="hero-email-form" action="https://assets.mailerlite.com/jsonp/2584116/forms/196282327009068707/subscribe" method="post" target="ml-hidden-frame" onsubmit="handleEmailSubmit(event)">
-          <input type="email" name="fields[email]" placeholder="your@email.com" autocomplete="email" required />
-          <input type="hidden" name="ml-submit" value="1" />
-          <input type="hidden" name="anticsrf" value="true" />
+        <form class="hero-email-form" action="https://app.loops.so/api/newsletter-form/cmt53rgg404s60j00j0g5qqrm" onsubmit="handleEmailSubmit(event)">
+          <input type="email" name="email" placeholder="your@email.com" autocomplete="email" required />
           <button type="submit" class="btn btn-primary">Get Chapter One for FREE</button>
         </form>
       </div>
@@ -84,7 +91,7 @@
 
   <!-- WORLD INTRO -->
   <section id="world">
-    <div class="story-carousel" data-autoplay="6000">
+    <div class="story-carousel" data-autoplay="9000">
       <div class="carousel-viewport">
         <div class="carousel-track">
 
@@ -295,10 +302,8 @@
       <div class="release-info">
         <p class="release-date">Release date: <strong>December 2026</strong></p>
         <p class="release-sub">Want a sneak peek? Share your email to read the first chapter:</p>
-        <form class="email-capture" action="https://assets.mailerlite.com/jsonp/2584116/forms/196282327009068707/subscribe" method="post" target="ml-hidden-frame" onsubmit="handleEmailSubmit(event)">
-          <input type="email" name="fields[email]" placeholder="your@email.com" autocomplete="email" required />
-          <input type="hidden" name="ml-submit" value="1" />
-          <input type="hidden" name="anticsrf" value="true" />
+        <form class="email-capture" action="https://app.loops.so/api/newsletter-form/cmt53rgg404s60j00j0g5qqrm" onsubmit="handleEmailSubmit(event)">
+          <input type="email" name="email" placeholder="your@email.com" autocomplete="email" required />
           <button type="submit" class="btn btn-primary">Read the First Chapter</button>
         </form>
       </div>
@@ -399,8 +404,6 @@
     </div>
   </footer>
 
-  <iframe name="ml-hidden-frame" title="Newsletter submission" style="display:none"></iframe>
-
-  <script src="script.js?v=5"></script>
+  <script src="script.js?v=7"></script>
 </body>
 </html>

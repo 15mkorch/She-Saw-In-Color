@@ -41,6 +41,173 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 
 /* ============================================================
+   CHAPTER MODAL
+   ============================================================ */
+.chapter-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.4s ease, visibility 0s linear 0.4s;
+}
+
+.chapter-modal.open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transition: opacity 0.4s ease, visibility 0s linear 0s;
+}
+
+.chapter-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(5,5,8,0.85);
+  backdrop-filter: blur(4px);
+}
+
+.chapter-modal-box {
+  position: relative;
+  z-index: 1;
+  background: linear-gradient(160deg, #14141c, #0a0a0f);
+  border: 1px solid rgba(201,168,76,0.25);
+  border-radius: 10px;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.7), 0 0 60px rgba(201,168,76,0.12);
+  max-width: 480px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 2rem;
+  transform: scale(0.92) translateY(10px);
+  transition: transform 0.4s ease;
+}
+
+.chapter-modal.open .chapter-modal-box {
+  transform: scale(1) translateY(0);
+}
+
+.chapter-modal-close {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.05);
+  color: var(--grey-light);
+  font-size: 1.2rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.25s, color 0.25s;
+}
+
+.chapter-modal-close:hover {
+  background: rgba(201,168,76,0.15);
+  color: var(--gold-light);
+}
+
+.chapter-modal-cover {
+  width: 110px;
+  flex: 0 0 auto;
+  border-radius: 4px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+}
+
+.chapter-modal-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.chapter-modal-eyebrow {
+  font-family: var(--font-ui);
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.5rem;
+}
+
+.chapter-modal-content h3 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  color: var(--gold-light);
+  margin-bottom: 0.6rem;
+  line-height: 1.3;
+}
+
+.chapter-modal-text {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: rgba(245,240,232,0.75);
+  margin-bottom: 1.25rem;
+}
+
+.chapter-modal-text em {
+  color: var(--gold-light);
+  font-style: italic;
+}
+
+.chapter-modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.chapter-modal-form input[type="email"] {
+  padding: 0.7rem 1rem;
+  border: 1px solid rgba(201,168,76,0.4);
+  border-radius: 4px;
+  background: rgba(255,255,255,0.05);
+  color: #fff;
+  font-size: 0.9rem;
+  outline: none;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.chapter-modal-form input[type="email"]:focus {
+  border-color: var(--gold);
+}
+
+.chapter-modal-form button {
+  width: 100%;
+}
+
+.chapter-modal-dismiss {
+  display: block;
+  margin: 0.75rem auto 0;
+  font-family: var(--font-ui);
+  font-size: 0.75rem;
+  color: var(--grey-light);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.chapter-modal-dismiss:hover {
+  color: var(--gold-light);
+}
+
+@media (max-width: 500px) {
+  .chapter-modal-box {
+    flex-direction: column;
+    text-align: center;
+    padding: 1.75rem;
+  }
+
+  .chapter-modal-cover {
+    width: 90px;
+  }
+}
+
+/* ============================================================
    BIRD CANVAS
    ============================================================ */
 #birdCanvas {
