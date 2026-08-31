@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>The Prologue — She Saw in Color</title>
+  <link rel="icon" type="image/png" href="favicon2.png" />
+  <link rel="stylesheet" href="styles.css?v=13" />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;800&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    .prologue-header {
+      padding: 1.5rem 2rem;
+    }
+
+    .prologue-header a {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--gold-light);
+      letter-spacing: 0.05em;
+    }
+
+    .prologue-intro {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 1.5rem 2rem 2.5rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .prologue-eyebrow {
+      font-family: var(--font-ui);
+      font-size: 0.75rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.75rem;
+    }
+
+    .prologue-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4.5vw, 2.75rem);
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      background: linear-gradient(135deg, #00d4ff, #ff00cc, #ffd700);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 0.5rem;
+      line-height: 1.2;
+    }
+
+    .prologue-subtitle {
+      font-family: var(--font-ui);
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--grey-light);
+      margin-bottom: 1.5rem;
+    }
+
+    .prologue-text {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: rgba(245,240,232,0.85);
+    }
+
+    .prologue-text em {
+      color: var(--gold-light);
+      font-style: italic;
+    }
+
+    .prologue-viewer-wrap {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 1.5rem 3rem;
+    }
+
+    .prologue-viewer {
+      width: 100%;
+      height: 85vh;
+      min-height: 500px;
+      border: 1px solid rgba(201,168,76,0.25);
+      border-radius: 8px;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.7), 0 0 60px rgba(139,92,246,0.15);
+      background: #1a1a1a;
+    }
+
+    .prologue-viewer-fallback {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      padding: 2rem;
+      text-align: center;
+      font-family: var(--font-body);
+      color: rgba(245,240,232,0.85);
+    }
+
+    .prologue-viewer-fallback a {
+      margin-top: 1rem;
+    }
+
+    .prologue-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 1.25rem;
+      font-family: var(--font-ui);
+      font-size: 0.8rem;
+    }
+
+    .prologue-links a {
+      color: var(--grey-light);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      transition: color 0.25s ease;
+    }
+
+    .prologue-links a:hover {
+      color: var(--gold-light);
+    }
+
+    .prologue-footer {
+      padding: 2rem;
+      text-align: center;
+      font-family: var(--font-ui);
+      font-size: 0.7rem;
+      letter-spacing: 0.08em;
+      color: var(--grey-light);
+      opacity: 0.6;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="prologue-header">
+    <a href="index.html">She Saw in Color</a>
+  </header>
+
+  <section class="prologue-intro">
+    <p class="prologue-eyebrow">A Gift For You</p>
+    <h1 class="prologue-title">The Prologue</h1>
+    <p class="prologue-subtitle">She Saw in Color &middot; by Mary Korch</p>
+    <p class="prologue-text">Thank you for being here. Step through the veil before anyone else does.</p>
+  </section>
+
+  <div class="prologue-viewer-wrap">
+    <object data="prologue.pdf" type="application/pdf" class="prologue-viewer">
+      <div class="prologue-viewer-fallback">
+        <p>Your browser can't display the PDF inline.</p>
+        <a href="prologue.pdf" target="_blank" rel="noopener" class="btn btn-primary">Open the Prologue</a>
+      </div>
+    </object>
+    <div class="prologue-links">
+      <a href="prologue.pdf" target="_blank" rel="noopener">Open in a new tab</a>
+      <a href="prologue.pdf" download>Download the PDF</a>
+    </div>
+  </div>
+
+  <footer class="prologue-footer">
+    &copy; 2026 Mary Korch. All rights reserved.
+  </footer>
+
+</body>
+</html>
