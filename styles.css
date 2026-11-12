@@ -949,6 +949,47 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   margin-bottom: 1.5rem;
 }
 
+.char-art {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  outline: none;
+}
+
+.art-credit {
+  position: absolute;
+  left: 50%;
+  bottom: 0.25rem;
+  transform: translate(-50%, 6px);
+  z-index: 3;
+  white-space: nowrap;
+  padding: 0.4rem 0.8rem;
+  background: rgba(10,10,15,0.88);
+  border: 1px solid rgba(201,168,76,0.3);
+  border-radius: 999px;
+  font-family: var(--font-ui);
+  font-size: 0.7rem;
+  letter-spacing: 0.04em;
+  color: var(--grey-light);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0s linear 0.25s;
+}
+
+.art-credit a {
+  color: var(--gold-light);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.char-art:hover .art-credit,
+.char-art:focus-within .art-credit {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, 0);
+  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0s linear 0s;
+}
+
 .char-info {
   position: relative;
   padding-top: 1rem;
@@ -1040,10 +1081,10 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 
 .artibak-portrait {
-  width: 180px;
+  width: 240px;
   height: 240px;
-  object-fit: cover;
-  object-position: top center;
+  object-fit: contain;
+  object-position: center;
   border-radius: 4px;
   filter: drop-shadow(0 0 20px rgba(120,120,140,0.5)) drop-shadow(0 0 40px rgba(80,80,100,0.3));
   transition: filter 0.3s ease;
@@ -1054,10 +1095,10 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 
 .joseph-portrait {
-  width: 180px;
+  width: 240px;
   height: 240px;
-  object-fit: cover;
-  object-position: top center;
+  object-fit: contain;
+  object-position: center;
   border-radius: 4px;
   filter: drop-shadow(0 0 20px rgba(201,168,76,0.5)) drop-shadow(0 0 40px rgba(255,200,80,0.25));
   transition: filter 0.3s ease;
